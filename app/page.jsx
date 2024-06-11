@@ -2,6 +2,7 @@ import Link from "next/link";
 import Post from "./_components/Post";
 import styles from "./page.module.css";
 import prisma from "@/lib/prisma";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getPosts() {
   const posts = await prisma.post.findMany({
@@ -16,6 +17,7 @@ async function getPosts() {
 }
 
 export default async function Home() {
+  noStore();
   const posts = await getPosts();
   return (
     <main className={styles.main}>
