@@ -22,7 +22,6 @@ export default async function Home() {
       <Link href={"/add-post"}>Add Post</Link>
       <h1>Feed</h1>
       {posts.map((post) => {
-        console.log(post);
         return (
           <Post
             key={post.id}
